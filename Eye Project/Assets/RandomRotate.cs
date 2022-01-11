@@ -7,13 +7,14 @@ public class RandomRotate : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKey(KeyCode.R))
-            transform.rotation = Quaternion.Euler(Random.Range(45, 135), Random.Range(-45, 45), Random.Range(-45, 45));
+        //if (transform.eulerAngles.x > 180 | transform.eulerAngles.x < 0 |transform.eulerAngles.y > 90 |transform.eulerAngles.y <-90| transform.eulerAngles.z > 90|transform.eulerAngles.z < -90)
+          //      transform.rotation = Quaternion.Euler(90, 0, 0);
+        if (Input.GetKey(KeyCode.R))//press R to rotate from current position 
+            transform.Rotate(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
     }
 }
