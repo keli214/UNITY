@@ -43,8 +43,8 @@ public class EyeTransform : MonoBehaviour
             transform.Translate(-transform.forward * movementSpeed * Time.deltaTime);
         if (Input.GetKey(KeyCode.W)) {
             transform.Rotate(new Vector3(x, y, z) * rotationSpeed * Time.deltaTime);
-            write();
         }
+        write();
         
     }
 }
