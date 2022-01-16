@@ -7,7 +7,6 @@ public class ChangeLightColor : MonoBehaviour
     public float rValue;
     public float gValue;
     public float bValue;
-    private Color newColor;
     Light lt;
     public void Red(float Redvalue)
     {
@@ -21,16 +20,23 @@ public class ChangeLightColor : MonoBehaviour
     {
         bValue = Bluevalue;
     }
+    
     // Start is called before the first frame update
     public void Start()
     { 
         lt = GetComponent<Light>();
+        rValue = (float)0.5;
+        gValue = (float)0.5;
+        bValue = (float)0.5;
+        // newColor = new Color(rValue,gValue,bValue);
+        lt.color = new Color(rValue,gValue,bValue);
     }
 
     // Update is called once per frame
     public void Update()
     {
-        newColor = new Color(rValue, gValue, bValue);
-        lt.color = newColor;
+        // newColor = new Color(rValue, gValue, bValue);
+        lt.color = new Color(rValue, gValue,bValue);
     }
+
 }
