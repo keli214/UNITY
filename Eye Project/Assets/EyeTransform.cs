@@ -15,6 +15,7 @@ public class EyeTransform : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Application.targetFrameRate = 60;
         CreateText();
     }
     
@@ -44,7 +45,5 @@ public class EyeTransform : MonoBehaviour
         if (Input.GetKey(KeyCode.W)) {
             transform.Rotate(new Vector3(x, y, z) * rotationSpeed * Time.deltaTime);
         }
-        write();
-        
     }
 }
