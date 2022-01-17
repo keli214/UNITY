@@ -8,9 +8,7 @@ public class RandomRotate : MonoBehaviour
     private float x = 0;
     private float y = 0;
     private float z = 0;
-
     private bool test = true;
-
     private int count = 0;
     private int reset = 0;
     // Start is called before the first frame update
@@ -25,6 +23,7 @@ public class RandomRotate : MonoBehaviour
         string path = Application.dataPath + "/test.txt";
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine("x: " + x.ToString() + " y: " + y.ToString() + " z: " + z.ToString());
+        writer.WriteLine("EulerAngles: " + transform.eulerAngles);
         writer.Close();
     }
     void CreateText()
@@ -66,7 +65,6 @@ public class RandomRotate : MonoBehaviour
         else if(count == 40){
             x = Random.Range(-5.0f, 5.0f);
             z = Random.Range(-5.0f, 5.0f);
-            // y = Random.Range(9f, 10f);
             if(test){
                 y = Random.Range(9f, 10f);
                 test = false;
