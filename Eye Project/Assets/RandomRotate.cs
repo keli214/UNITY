@@ -12,7 +12,7 @@ public class RandomRotate : MonoBehaviour
     private bool test = true;
 
     private int count = 0;
-    private int update = 0;
+    private int reset = 0;
     // Start is called before the first frame update
     void Start()
     {
@@ -42,13 +42,13 @@ public class RandomRotate : MonoBehaviour
         // if (Input.GetKey(KeyCode.R)) //press R to rotate from current position 
         // {
         count ++;
-        update ++;
+        reset ++;
         if(count > 60){
             count = 0;
         }
-        if(update == 1200){
+        if(reset == 1200){
             transform.localEulerAngles = new Vector3(90f,0,0);
-            update = 0;
+            reset = 0;
         }
         if(count == 20){
             y = Random.Range(-5.0f, 5.0f);
