@@ -3,7 +3,12 @@ guid: fb8c7276a149ff54787b8b832f290520
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eye_material
+    second: {fileID: 2100000, guid: 22612e6cfc399c54ba03bf0f62c4886b, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
