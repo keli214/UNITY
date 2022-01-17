@@ -42,7 +42,6 @@ public class RandomRotate : MonoBehaviour
             y = Random.Range(-1f, 1f);
             z = Random.Range(-1f, 1f);
             transform.Rotate(x, y, z);
-            write();
         }
     }
 }
