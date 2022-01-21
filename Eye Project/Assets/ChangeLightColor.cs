@@ -35,7 +35,6 @@ public class ChangeLightColor : MonoBehaviour
         rValue = 1f;
         gValue = 1f;
         bValue = 1f;
-        brightness = 0.75f;
         // newColor = new Color(rValue,gValue,bValue);
         lt.color = new Color(rValue,gValue,bValue);
     }
