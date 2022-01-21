@@ -20,7 +20,7 @@ public class RandomRotateTest : MonoBehaviour
     }
     void write()
     {
-        string path = Application.dataPath + "/test.txt";
+        string path = Application.dataPath + "/test_50.txt";
         StreamWriter writer = new StreamWriter(path, true);
         writer.WriteLine("x: " + x.ToString() + " y: " + y.ToString() + " z: " + z.ToString());
         writer.WriteLine("EulerAngles: " + transform.eulerAngles);
@@ -28,7 +28,7 @@ public class RandomRotateTest : MonoBehaviour
     }
     void CreateText()
     {
-        string path = Application.dataPath + "/test.txt";
+        string path = Application.dataPath + "/test_50.txt";
         File.WriteAllText(path, "Test \n\n");
         
     }
@@ -36,17 +36,13 @@ public class RandomRotateTest : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        //if (transform.eulerAngles.x > 180 | transform.eulerAngles.x < 0 |transform.eulerAngles.y > 90 |transform.eulerAngles.y <-90| transform.eulerAngles.z > 90|transform.eulerAngles.z < -90)
-        //      transform.rotation = Quaternion.Euler(90, 0, 0);
-        // if (Input.GetKey(KeyCode.R)) //press R to rotate from current position 
-        // {
         count ++;
         reset ++;
         if(count > 60){
             count = 0;
         }
         if(reset == 1200){
-            transform.localEulerAngles = new Vector3(90f,0,0);
+            transform.eulerAngles = new Vector3(0,0,0);
             reset = 0;
         }
         if(count == 20){
