@@ -8,7 +8,7 @@ public class RandomRotateNew : MonoBehaviour
     private float x = 0;
     private float y = 0;
     private float z = 0;
-    private float rotationSpeed = 0.3f;
+    public float rotationSpeed = 0.3f;
 
     private Vector3 currentAngles;
 
@@ -43,11 +43,25 @@ public class RandomRotateNew : MonoBehaviour
         File.WriteAllText(path, "Test \n\n");
     }
 
+    void rotation(){
+      x = rotationSpeed*xDirection + x;
+      z = rotationSpeed*zDirection + z;
+    }
+
+    void crossMovement(){
+      if(reset < 1800){
+        x = rotationSpeed*xDirection + x;
+      }
+      else{
+        z = rotationSpeed*zDirection + z;
+      }
+    }
+
     // Update is called once per frame
     void Update()
     {
         
-        if(reset == 0) targetAngles = new Vector3(44f,0,0);
+        // if(reset == 0) targetAngles = new Vector3(44f,0,0);
         //Debug.Log(targetAngles);
         count ++;
         reset ++;
@@ -55,21 +69,26 @@ public class RandomRotateNew : MonoBehaviour
         if(count > 60){
             count = 0;
         }
-        if(reset == 3600) reset = 0;
+        // if(reset == 7200) reset = 0;
         //Debug.Log(xDirection);
         if(currentAngles.x > 26 && currentAngles.x < 27) xDirection = -1;
         if(currentAngles.x > -44 && currentAngles.x < -43) xDirection = 1;
         if(currentAngles.z > 43 && currentAngles.z < 44) zDirection = -1;
         if(currentAngles.z > -40 && currentAngles.z < -39) zDirection = 1;
         
-        x = rotationSpeed*xDirection + x;
-        z = rotationSpeed*zDirection + z;
+        if(reset < 3600){
+          crossMovement();
+        }
+        else{
+          rotation();
+        }
+
         y = 0f;
         currentAngles = new Vector3(x,y,z);
         transform.eulerAngles = currentAngles;
-        // if(count == 60){
+        if(count == 60){
           write();
-        //}
+        }
         
     }
 }
